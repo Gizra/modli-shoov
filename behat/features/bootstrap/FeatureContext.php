@@ -64,7 +64,7 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    * @param $fn
    *   A callable to invoke.
    * @param int $timeout
-   *   The timeout period. Defaults to 10 seconds.
+   *   The timeout period. Defaults to 5 seconds.
    *
    * @throws Exception
    */
