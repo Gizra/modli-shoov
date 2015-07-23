@@ -1,3 +1,6 @@
+addons:
+  - selenium
+
 before_script:
   # Instead of npm/ composer install, we save time by using a gzipped file.
   - cd visual-monitor
