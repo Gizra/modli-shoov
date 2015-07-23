@@ -64,11 +64,11 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    * @param $fn
    *   A callable to invoke.
    * @param int $timeout
-   *   The timeout period. Defaults to 5 seconds.
+   *   The timeout period. Defaults to 10 seconds.
    *
    * @throws Exception
    */
-  private function waitFor($fn, $timeout = 5000) {
+  private function waitFor($fn, $timeout = 10000) {
     $start = microtime(true);
     $end = $start + $timeout / 1000.0;
     while (microtime(true) < $end) {
