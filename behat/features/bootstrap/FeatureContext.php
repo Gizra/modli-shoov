@@ -36,8 +36,16 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    */
   public function iShouldSeeTheItemAddedToTheCart() {
     $this->waitFor(function($context) {
-      $element = $context->getSession()->getPage()->find('css', '#cart-count-num');
-      return $element->getText() == '(1)';
+      try {
+        $element = $context->getSession()->getPage()->find('css', '#cart-count-num');
+        return $element->getText() == '(1)';
+      }
+      catch (WebDriver\Exception $e) {
+        if ($e->getCode() == WebDriver\Exception::NO_SUCH_ELEMENT) {
+          return FALSE;
+        }
+        throw $e;
+      }
     });
   }
 
