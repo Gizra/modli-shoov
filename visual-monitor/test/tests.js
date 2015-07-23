@@ -46,38 +46,34 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
+      .pause(5000)
       .webdrivercss(testName + '.homepage', {
-        name: 'homepage',
+        name: '1',
         exclude:
           [
-            // News block.
-            '#tab-news',
-            // Community stats.
-            '#community-stats .highlight',
-            // Who uses Drupal.
-            '#sites-with-drupal img'
+            // Top slide show.
+            '#slideshow-wrapper-home',
+            // Banner left.
+            '.banner-left p',
+            // Banner right.
+            '.banner-right',
+            // Small banner top.
+            '.banner-inner-top',
+            // Small banner bottom.
+            '.banner-inner-bottom',
+            // Slide show instagram.
+            '#slideshow-wrapper-instagram',
+            // Slide show category products popular.
+            '.category-products-popular',
           ],
         remove:
           [
-            // Who uses Drupal text
-            '#sites-with-drupal p a'
+            // Need help panel.
+            '#habla_beta_container_do_not_rely_on_div_classes_or_names',
+            // Slide control.
+            '.slide-nav-inner',
           ],
-        screenWidth: selectedCaps == 'chrome' ? [320, 640, 960, 1200] : undefined,
-      }, shoovWebdrivercss.processResults)
-      .call(done);
-  });
-
-  it('should show start page',function(done) {
-    client
-      .url(baseUrl + '/start')
-      .webdrivercss(testName + '.start', {
-        name: 'start',
-        exclude:
-          [
-            '.narrow-box ul.flat',
-            '.get-started.documentation img'
-          ],
-        screenWidth: selectedCaps == 'chrome' ? [320, 640, 960, 1200] : undefined,
+        screenWidth: selectedCaps == 'chrome' ? [320, 640, 960, 1200] : undefined
       }, shoovWebdrivercss.processResults)
       .call(done);
   });
