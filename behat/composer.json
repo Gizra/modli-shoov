@@ -1,0 +1,10 @@
+{
+  "name": "Behat tests for https://modli.co",
+  "description": "Functional testing for https://modli.co site.",
+  "require": {
+    "drupal/drupal-extension": "~3.0"
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+}
