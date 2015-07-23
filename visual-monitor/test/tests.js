@@ -62,9 +62,12 @@ describe('Visual monitor testing', function() {
             // Small banner bottom.
             '.banner-inner-bottom',
             // Slide show instagram.
-            '#slideshow-wrapper-instagram',
+            '#slideshow-wrapper-instagram .cycle-carousel-wrap .cycle-slide-active:nth-child(n+4) img',
+            '#slideshow-wrapper-instagram .cycle-carousel-wrap .cycle-slide:nth-child(n+7):nth-last-child(n+7) img',
             // Slide show category products popular.
-            '.category-products-popular',
+            '.cycle-carousel-wrap .slide:nth-child(n+14):nth-last-child(n+22) img',
+            '.cycle-carousel-wrap .slide:nth-child(n+14):nth-last-child(n+22) .product-name',
+            '.cycle-carousel-wrap .slide:nth-child(n+14):nth-last-child(n+22) .price',
           ],
         remove:
           [
@@ -73,7 +76,7 @@ describe('Visual monitor testing', function() {
             // Slide control.
             '.slide-nav-inner',
           ],
-        screenWidth: selectedCaps == 'chrome' ? [320, 640, 960, 1200] : undefined
+        screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined
       }, shoovWebdrivercss.processResults)
       .call(done);
   });
