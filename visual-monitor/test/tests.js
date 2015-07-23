@@ -46,6 +46,7 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
+      // Wait for Need help panel.
       .pause(5000)
       .webdrivercss(testName + '.homepage', {
         name: '1',
