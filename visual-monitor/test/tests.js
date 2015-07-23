@@ -46,38 +46,38 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
+      // Wait for Need help panel.
+      .pause(5000)
       .webdrivercss(testName + '.homepage', {
-        name: 'homepage',
+        name: '1',
         exclude:
           [
-            // News block.
-            '#tab-news',
-            // Community stats.
-            '#community-stats .highlight',
-            // Who uses Drupal.
-            '#sites-with-drupal img'
+            // Top slide show.
+            '#slideshow-wrapper-home',
+            // Banner left.
+            '.banner-left p',
+            // Banner right.
+            '.banner-right',
+            // Small banner top.
+            '.banner-inner-top',
+            // Small banner bottom.
+            '.banner-inner-bottom',
+            // Slide show instagram.
+            '#slideshow-wrapper-instagram .cycle-carousel-wrap .cycle-slide-active:nth-child(n+4) img',
+            '#slideshow-wrapper-instagram .cycle-carousel-wrap .cycle-slide:nth-child(n+7):nth-last-child(n+7) img',
+            // Slide show category products popular.
+            '.cycle-carousel-wrap .slide:nth-child(n+14):nth-last-child(n+22) img',
+            '.cycle-carousel-wrap .slide:nth-child(n+14):nth-last-child(n+22) .product-name',
+            '.cycle-carousel-wrap .slide:nth-child(n+14):nth-last-child(n+22) .price',
           ],
         remove:
           [
-            // Who uses Drupal text
-            '#sites-with-drupal p a'
+            // Need help panel.
+            '#habla_beta_container_do_not_rely_on_div_classes_or_names',
+            // Slide control.
+            '.slide-nav-inner',
           ],
-        screenWidth: selectedCaps == 'chrome' ? [320, 640, 960, 1200] : undefined,
-      }, shoovWebdrivercss.processResults)
-      .call(done);
-  });
-
-  it('should show start page',function(done) {
-    client
-      .url(baseUrl + '/start')
-      .webdrivercss(testName + '.start', {
-        name: 'start',
-        exclude:
-          [
-            '.narrow-box ul.flat',
-            '.get-started.documentation img'
-          ],
-        screenWidth: selectedCaps == 'chrome' ? [320, 640, 960, 1200] : undefined,
+        screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined
       }, shoovWebdrivercss.processResults)
       .call(done);
   });
