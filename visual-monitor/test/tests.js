@@ -72,6 +72,9 @@ describe('Visual monitor testing', function() {
           ],
         remove:
           [
+            // @todo: Remove this in IE.
+            // Fixed header.
+            selectedCaps == 'ie11' ? '.top-header' : '',
             // Need help panel.
             '#habla_beta_container_do_not_rely_on_div_classes_or_names',
             // Slide control.
