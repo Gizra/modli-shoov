@@ -7,20 +7,34 @@ var shoovWebdrivercss = require('shoov-webdrivercss');
 // PROVIDER_PREFIX=browserstack SELECTED_CAPS=chrome mocha
 var capsConfig = {
   'chrome': {
+    'project' : 'modli',
     'browser' : 'Chrome',
     'browser_version' : '42.0',
     'os' : 'OS X',
     'os_version' : 'Yosemite',
-    'resolution' : '1024x768'
+    'resolution' : '1024x768',
+  },
+  'iphone5': {
+    'project' : 'modli',
+    'browser' : 'Chrome',
+    'browser_version' : '42.0',
+    'os' : 'OS X',
+    'os_version' : 'Yosemite',
+    'chromeOptions': {
+      'mobileEmulation': {
+        'deviceName': 'Apple iPhone 5'
+      }
+    }
   },
   'ie11': {
+    'project' : 'modli',
     'browser' : 'IE',
     'browser_version' : '11.0',
     'os' : 'Windows',
     'os_version' : '7',
     'resolution' : '1024x768'
   }
-}
+};
 
 var selectedCaps = process.env.SELECTED_CAPS || undefined;
 var caps = selectedCaps ? capsConfig[selectedCaps] : undefined;
